@@ -1,0 +1,65 @@
+@font-face {
+    font-family: code;
+    src: url(../fonts/Menlo-Regular.ttf);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg1: #282828;
+        --bg2: #3c3836;
+        --bg3: #7c6f64;
+    
+        --fg1: #ebdbb2;
+        --fg2: #a89984;
+    }
+}
+  
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg1: #fbf1c7;
+        --bg2: #ebdbb2;
+        --bg3: #d5c4a1;
+    
+        --fg1: #282828;
+        --fg2: #3c3836;
+    }
+}
+
+:root{
+    --sc1: #fe8019;
+    --sc2: #d65d0e;
+}
+
+  
+*{
+    font-family: code;
+
+}
+
+body{
+    background-color: var(--bg1);
+    color: var(--fg1);
+}
+
+a{
+    color: var(--sc2);
+    cursor: pointer;
+}
+a:hover{
+    color: var(--sc1);
+}
+
+.pannel{
+    background-color: var(--bg2);
+    border-radius: 10px;
+}
+input{
+    outline: none;
+    color: var(--fg1);
+}
+input[type="submit"]{
+    cursor: pointer;
+}
+
+
+

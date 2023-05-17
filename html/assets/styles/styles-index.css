@@ -1,0 +1,94 @@
+#title{
+    color: var(--sc1);
+}
+#title :first-child{
+    font-size: 4em;
+}
+#title :last-child{
+    font-size: 2em;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pannel{
+    width: 40%;
+    box-shadow: var(--bg3) 0px 0px 0px 3px;
+}
+.pannel .error{
+    color: #ff6961;
+    margin-bottom: 0.5vh;
+    text-align: left;
+    width: 75%;
+}
+
+.pannel footer{
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    border-top: 3px solid var(--bg3);
+}
+
+form{
+    flex-direction: column;
+    align-items: center;
+}   
+form p{
+    font-size: 1.5em;
+    margin: 1vh;
+}
+
+input{
+    margin-bottom: 1vh;
+    border-radius: 3px;
+    padding: 0.5vh;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    width: 60%;
+
+    background-color: var(--bg2);
+    border: none;
+    box-shadow: var(--bg3) 0px 0px 0px 3px;
+}
+input[type="submit"]{
+    margin-top: 1.5vh;
+    font-size: 1em;
+    border: none;
+    background-color: var(--bg2);
+    box-shadow: var(--bg3) 0px 0px 0px 3px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus{
+    background-color: var(--bg1);
+    box-shadow: var(--sc1) 0px 0px 0px 3px;
+}
+
+.passwordCase{
+    width: 60%;
+    display: flex;
+}
+.passwordCase input[type="text"],
+.passwordCase input[type="password"]{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.passwordCase button{
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg2);
+    border: none;
+    width: 3vh;
+}
+.passwordCase img{
+    height: 3vh;
+    color: var(--fg1);
+    margin-left: 1vh;
+    cursor: pointer;
+}
+

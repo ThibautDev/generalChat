@@ -1,0 +1,113 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="../assets/styles/styles-chat.css">
+    <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="../assets/colors/gruvbox.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+    <title>Le general</title>
+</head>
+<body>
+    <div id="menu">
+        <header>
+            <div id="selected">
+                <span>English</span>
+            </div>
+            <div>
+                <span>French</span>
+            </div>
+            <div>
+                <span>Netherlands</span>
+            </div>
+        </header> 
+        <footer>
+            <div>
+                <span>Settings</span>
+            </div>
+            <div class="redSpan">
+                <span>Repport</span>
+            </div>
+            <div class="redSpan">
+                <span>Disconnect</span>
+            </div>
+        </footer> 
+    </div>
+    <div id="chat">
+        <div id="chatbox">
+            <div class="message">
+                <div id="start">
+                    <span id="username">Username</span> : <span id="text">Singularity towards military-grade faded office franchise futurity savant assassin semiotics. Dissident sprawl decay human systema BASE jump car augmented reality warehouse drone digital cyber. Neon sub-orbital semiotics grenade apophenia ablative military-grade shanty town hotdog katana 8-bit bicycle order-flow media. Sentient lights soul-delay franchise fluidity city alcohol dead hotdog rain into sensory assault nano. Legba soul-delay advert fetishism systemic nodality apophenia nodal point San Francisco narrative BASE jump tanto bomb sprawl shrine savant bridge. Smart-tiger-team dissident range-rover refrigerator dolphin order-flow otaku digital soul-delay bomb shoes. </span>
+                </div>
+                <div id="end">
+                    11:11
+                </div>
+            </div>
+        </div>
+        <div id="sendbox">
+             <input type="text" name="messageToSend" placeholder="Message max 200 characters">
+             <img src="../assets/logo/send.svg">
+        </div>
+    </div>
+    <div id="setting">
+        <div id="pannel">
+            <p>Settings</p>
+            <div class="section">
+                <label for="newUsername">Your username : <span id="settingUsername"></span></label>
+                <div class="change">
+                    <input type="text" name="newUsername" placeholder="New Username">
+                    <img src="../assets/logo/save.svg">
+                </div>
+            </div>
+            <div class="section">
+                <label for="newUsername">Your E-mail : <span id="settingEmail"></span></label>
+                <div class="change">
+                    <input type="text" name="newUsername" placeholder="New Username">
+                    <img src="../assets/logo/save.svg">
+                </div>
+            </div>
+            <div class="section">
+                <label for="newUsername">New password</label>
+                <div class="change">
+                    <input type="text" name="newUsername" placeholder="New Username">
+                    <img src="../assets/logo/save.svg">
+                </div>
+            </div>
+        </div>
+        <div id="dark"></div>
+    </div>
+    <div id="repport">
+        <div id="pannel">
+            <p>Repport</p>
+            <form>
+                <input type="text" name="repportUsername" placeholder="Username">
+                <select name="cars" id="cars">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+            </form>
+        </div>
+        <div id="dark"></div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const container = document.getElementById("chatbox");
+    container.scrollTop = container.scrollHeight;
+
+    // var app = document.getElementById('text');
+
+    // var typewriter = new Typewriter(app, {
+    //   delay: 7,
+    // });
+
+    // typewriter
+    //   .typeString('')
+    //   .start();
+</script>

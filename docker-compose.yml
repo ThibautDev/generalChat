@@ -1,0 +1,34 @@
+version: "3"
+services:
+
+  php-apache:
+    container_name: GBE-phpApache
+    build:
+      context: docker
+      dockerfile: dockerfile.php
+    ports:
+      - 80:80
+    volumes:
+      - ./html:/var/www/html
+
+  mysql:
+    container_name: GBE-mysql
+    image: mysql:latest
+    command: --default_authentication_plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: 9mZiO?5uL#rmZ|9?KITAv_MxF+6%sncW
+      MYSQL_DATABASE: main
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+
+  phpmyadmin:
+    container_name: GBE-phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: GBE-mysql
+    ports:
+      - 8183:80

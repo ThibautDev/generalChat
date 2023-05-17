@@ -1,0 +1,100 @@
+<script>
+    var formType = localStorage.getItem("formType");
+
+    console.log(formType);
+
+    if (localStorage.getItem("formType") === null) {
+        localStorage.setItem("formType", "login");
+    }
+
+    function setForm() {
+        var formType = localStorage.getItem("formType");
+
+        if (formType === "login" ) {
+            document.getElementById('login').style.display = 'flex';
+            document.getElementById('create').style.display = 'none';
+            document.getElementById('footer').textContent = 'No account ? Create one';
+        } else if (formType === "createAccount" ) {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('create').style.display = 'flex';
+            document.getElementById('footer').textContent = 'Already create an account ? Login';
+        }
+    }
+
+    function switchForm() {
+        var formType = localStorage.getItem("formType");
+
+        if (formType === "login" ) {
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('create').style.display = 'flex';
+            document.getElementById('footer').textContent = 'Already created an account ? Login';
+            localStorage.setItem("formType", "createAccount");
+        } else if (formType === "createAccount" ) {
+            document.getElementById('login').style.display = 'flex';
+            document.getElementById('create').style.display = 'none';
+            document.getElementById('footer').textContent = 'No account ? Create one';
+            localStorage.setItem("formType", "login");
+        }
+
+        return formType;
+    };
+
+    function passwordToggle(form) {
+        var password = document.querySelector('#' + form + ' .password');
+        var button = document.querySelector('#' + form + ' img');
+
+        if (password.type === "password") {
+            password.type = "text";
+            button.src= "assets/logo/eyeon.svg";
+        } else {
+            password.type = "password";
+            button.src= "assets/logo/eyeoff.svg";
+        }
+    }
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles-index.css">
+    <link rel="stylesheet" type="text/css" href="assets/styles/styles.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Le general</title>
+</head>
+<body onload="setForm()">
+    <p id="title"><span>Général</span><span>.be</span></p>
+    <div class="pannel">
+        <form id="login" method="post" action="functions/login.php">
+            <p>Login form</p>
+            <div class="error" id="elu"></div>
+            <input type="text" placeholder="Username / E-mail">
+            <div class="error" id="elp"></div>
+            <div class="passwordCase">
+                <input class="password" type="password" placeholder="Password">
+                <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('login')">
+            </div>
+            <input type="submit" value="Connection">
+        </form>
+        <form id="create" method="post" action="functions/create.php">
+            <p>Login form</p>
+            <div class="error" id="ecu"></div>
+            <input type="text" placeholder="Username (max 25 characters)" maxlength="25">
+            <div class="error" id="ece"></div>
+            <input type="email" placeholder="E-mail">
+            <div class="error" id="ecp"></div>
+            <div class="passwordCase">
+                <input class="password" type="password" placeholder="Password">
+                <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('create')">
+            </div>
+            <input type="submit" value="Registration">
+        </form>
+        <footer>
+            <span id="footer">No account ? Create one</span> <a onclick="switchForm()">here</a>
+        </footer>
+    </div>
+</body>
+</html>

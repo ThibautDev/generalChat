@@ -91,4 +91,6 @@ input[type="password"]:focus{
     margin-left: 1vh;
     cursor: pointer;
 }
-
+.error{
+    margin-left: 20%;
+}

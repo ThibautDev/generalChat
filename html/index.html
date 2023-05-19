@@ -1,3 +1,4 @@
+<html>
 <script>
     var formType = localStorage.getItem("formType");
 
@@ -68,13 +69,13 @@
 <body onload="setForm()">
     <p id="title"><span>Général</span><span>.be</span></p>
     <div class="pannel">
-        <form id="login" method="post" action="functions/login.php">
+        <form id="login" method="post" action="assets/functions/php/login.php">
             <p>Login form</p>
             <div class="error" id="elu"></div>
-            <input type="text" placeholder="Username / E-mail">
+            <input type="text" placeholder="Username / E-mail" name="username">
             <div class="error" id="elp"></div>
             <div class="passwordCase">
-                <input class="password" type="password" placeholder="Password">
+                <input class="password" type="password" placeholder="Password" name="password">
                 <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('login')">
             </div>
             <input type="submit" value="Connection">
@@ -98,3 +99,9 @@
     </div>
 </body>
 </html>
+<script>
+
+    document.getElementById("elu").innerHTML = localStorage.getItem("connection");
+
+    localStorage.setItem("connection", "");
+</script>

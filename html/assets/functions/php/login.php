@@ -1,10 +1,9 @@
 <?php
+
 require 'conn.php';
 
-if (conn("main")->connect_error) {
-    die("Connection failed: " . $main->connect_error);
-}
+$username = $_POST['username'];
+$password = md5($_POST['password']);
 
-
-
+header('Location: ' . "http://localhost");
 ?>

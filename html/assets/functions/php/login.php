@@ -2,8 +2,19 @@
 
 require 'conn.php';
 
-$username = $_POST['username'];
-$password = md5($_POST['password']);
+function errorLogin($errorMessage) {
+    echo "<script>
+        localStorage.setItem('connection', '$errorMessage');
+        window.location.href = '/';
+    </script>";
+}
 
-header('Location: ' . "http://localhost");
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+if (empty($username)){
+    errorLogin("Empty username");
+} else if (empty($password)){
+    errorLogin("Empty password");
+}
 ?>

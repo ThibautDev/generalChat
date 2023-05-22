@@ -2,8 +2,6 @@
 <script>
     var formType = localStorage.getItem("formType");
 
-    console.log(formType);
-
     if (localStorage.getItem("formType") === null) {
         localStorage.setItem("formType", "login");
     }
@@ -52,7 +50,7 @@
             button.src= "assets/logo/eyeoff.svg";
         }
     }
-
+    console.log(localStorage.getItem("connection") + "test");
 </script>
 <head>
     <meta charset="UTF-8">
@@ -100,8 +98,6 @@
 </body>
 </html>
 <script>
-
     document.getElementById("elu").innerHTML = localStorage.getItem("connection");
-
     localStorage.setItem("connection", "");
 </script>

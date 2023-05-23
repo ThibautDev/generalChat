@@ -19,7 +19,7 @@ body{
 .pannel .error{
     color: #ff6961;
     margin-bottom: 0.5vh;
-    text-align: left;
+    text-align: center;
     width: 75%;
 }
 
@@ -90,7 +90,4 @@ input[type="password"]:focus{
     color: var(--fg1);
     margin-left: 1vh;
     cursor: pointer;
-}
-.error{
-    margin-left: 20%;
 }

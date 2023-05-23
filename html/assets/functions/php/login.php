@@ -8,15 +8,19 @@ function errorLogin($errorMessage) {
     </script>";
 }
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$username = $_POST['usernameLogin'];
+$password = $_POST['passwordLogin'];
 
 if (empty($username)){
     errorLogin("Empty username");
 } else if (empty($password)){
     errorLogin("Empty password");
 } else {
-    $getIdSql = "SELECT `id` FROM `user` WHERE `username` = '$username' && `password` = '" . md5($password) . "';";
+    $getIdSql = "
+        SELECT `id` FROM `user` WHERE 
+        `username` = '$username' && 
+        `password` = '" . md5($password) . "'
+        ;";
 
     $result = conn("main")->query($getIdSql);
 

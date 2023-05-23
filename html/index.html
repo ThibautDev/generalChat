@@ -70,20 +70,20 @@
         <form id="login" method="post" action="assets/functions/php/login.php">
             <p>Login form</p>
             <div class="error" id="errorLogin"></div>
-            <input type="text" placeholder="Username / E-mail" name="username">
+            <input type="text" placeholder="Username / E-mail" name="usernameLogin">
             <div class="passwordCase">
-                <input class="password" type="password" placeholder="Password" name="password">
+                <input class="password" type="password" placeholder="Password" name="passwordLogin">
                 <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('login')">
             </div>
             <input type="submit" value="Connection">
         </form>
         <form id="create" method="post" action="assets/functions/php/create.php">
-            <p>Login form</p>
+            <p>Create account form</p>
             <div class="error" id="errorConnection"></div>
-            <input type="text" placeholder="Username (max 25 characters)" maxlength="25">
-            <input type="email" placeholder="E-mail">
+            <input type="text" placeholder="Username (max 25 characters)" maxlength="25" name="usernameCreate">
+            <input type="email" placeholder="E-mail" name="emailCreate">
             <div class="passwordCase">
-                <input class="password" type="password" placeholder="Password">
+                <input class="password" type="password" placeholder="Password" name="passwordCreate">
                 <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('create')">
             </div>
             <input type="submit" value="Registration">

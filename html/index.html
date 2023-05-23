@@ -69,22 +69,19 @@
     <div class="pannel">
         <form id="login" method="post" action="assets/functions/php/login.php">
             <p>Login form</p>
-            <div class="error" id="elu"></div>
+            <div class="error" id="errorLogin"></div>
             <input type="text" placeholder="Username / E-mail" name="username">
-            <div class="error" id="elp"></div>
             <div class="passwordCase">
                 <input class="password" type="password" placeholder="Password" name="password">
                 <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('login')">
             </div>
             <input type="submit" value="Connection">
         </form>
-        <form id="create" method="post" action="functions/create.php">
+        <form id="create" method="post" action="assets/functions/php/create.php">
             <p>Login form</p>
-            <div class="error" id="ecu"></div>
+            <div class="error" id="errorConnection"></div>
             <input type="text" placeholder="Username (max 25 characters)" maxlength="25">
-            <div class="error" id="ece"></div>
             <input type="email" placeholder="E-mail">
-            <div class="error" id="ecp"></div>
             <div class="passwordCase">
                 <input class="password" type="password" placeholder="Password">
                 <img src="assets/logo/eyeoff.svg" onclick="passwordToggle('create')">
@@ -98,6 +95,8 @@
 </body>
 </html>
 <script>
-    document.getElementById("elu").innerHTML = localStorage.getItem("connection");
+    document.getElementById("errorLogin").innerHTML = localStorage.getItem("connection");
+    document.getElementById("errorConnection").innerHTML = localStorage.getItem("create");
     localStorage.setItem("connection", "");
+    localStorage.setItem("create", "");
 </script>

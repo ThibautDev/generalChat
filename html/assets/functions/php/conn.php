@@ -6,10 +6,6 @@ function conn($db){
     return (new mysqli($servername, $username,$password,$db));
 }
 
-if (conn("main")->connect_error) {
-    die("Connection failed: " . $main->connect_error);
-}
-
 //example
 //$main->query("INSERT INTO `users` (`username`, `email`, `password`, `language`, `urlpic`) VALUES ('test1', 'test@test.te', 'test', '1', 'none');");
 ?>

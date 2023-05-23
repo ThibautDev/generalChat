@@ -2,6 +2,7 @@
 require 'conn.php';
 
 function errorLogin($errorMessage) {
+    conn("main") -> close();
     echo "<script>
         localStorage.setItem('connection', '$errorMessage');
         window.location.href = '/';
@@ -29,7 +30,15 @@ if (empty($username)){
     if (empty($row["id"])) {
         errorLogin("Wrong username / password");
     } else {
-        echo "id: " . $row["id"];
+        session_start();
+        $_SESSION["favcolor"] = $row["id"];
+        conn("main") -> close();
+        echo "
+            <script>
+                window.location.href = '/chat';
+            </script>
+        ";
     }
+
 }
 

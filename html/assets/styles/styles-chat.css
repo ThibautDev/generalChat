@@ -11,9 +11,7 @@ body{
 	justify-content: space-between;
 	flex-direction: column;
 }
-#menu header, #menu footer{
-	
-}
+
 #menu div{
 	margin: 1vh;
 	padding: 1vh;
@@ -56,8 +54,7 @@ body{
 	margin-top: 1vh;
 	overflow-wrap: break-word; 
 }
-.message #start{
-}
+
 .message #username{
 	color: var(--sc1);
 }

@@ -1,5 +1,5 @@
 <?php
-require 'conn.php';
+require '../conn.php';
 
 function errorLogin($errorMessage) {
     conn("main") -> close();

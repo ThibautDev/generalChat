@@ -1,5 +1,5 @@
 <?php
-require 'conn.php';
+require '../conn.php';
 
 function errorCreate($errorMessage) {
     echo "<script>

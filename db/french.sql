@@ -45,7 +45,7 @@ CREATE TABLE `french` (
 --
 -- Indexes for table `english`
 --
-ALTER TABLE `english`
+ALTER TABLE `french`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -55,7 +55,7 @@ ALTER TABLE `english`
 --
 -- AUTO_INCREMENT for table `english`
 --
-ALTER TABLE `english`
+ALTER TABLE `french`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 

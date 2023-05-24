@@ -53,16 +53,7 @@
         </footer> 
     </div>
     <div id="chat">
-        <div id="chatbox">
-            <div class="message">
-                <div id="start">
-                    <span id="messageUsername">Username</span> : <span id="text">Singularity towards military-grade faded office franchise futurity savant assassin semiotics. Dissident sprawl decay human systema BASE jump car augmented reality warehouse drone digital cyber. Neon sub-orbital semiotics grenade apophenia ablative military-grade shanty town hotdog katana 8-bit bicycle order-flow media. Sentient lights soul-delay franchise fluidity city alcohol dead hotdog rain into sensory assault nano. Legba soul-delay advert fetishism systemic nodality apophenia nodal point San Francisco narrative BASE jump tanto bomb sprawl shrine savant bridge. Smart-tiger-team dissident range-rover refrigerator dolphin order-flow otaku digital soul-delay bomb shoes. </span>
-                </div>
-                <div id="end">
-                    11:11
-                </div>
-            </div>
-        </div>
+        <div id="chatbox"></div>
         <div id="sendbox">
              <input type="text" id="messageToSend" name="messageToSend" placeholder="Message max 200 characters" onkeypress="pressEnter(event)">
              <img src="../assets/logo/send.svg" onclick="send()">
@@ -117,11 +108,35 @@
 
 
 <script type="text/javascript">
-    
     var chat = "english";
 
+
+
+    $.ajax({
+        url: '../assets/functions/chat/get50.php',
+        dataType: 'json',
+        type: "POST",
+        data: {
+            language: "english"
+        },
+        success: function(response) {
+            console.log(response);
+
+            for (var i = 0; i < response.length; i++) {
+                console.log("test");
+
+                var row = response[i];
+                var id = row.id;
+                var userId = row.userId;
+                var message = row.message;
+                var time = row.time;
+                document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + row.userId + "</span> : <span id='text'>" + row.message +  "</span></div><div id='end'>" + row.time + "</div></div>";
+            }
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;
+        }
+    })
+
 
     function pressEnter(event){
         if (event.keyCode == 13) {
@@ -139,7 +154,8 @@
                 language: "english",
             },
         });
-
         document.getElementById("messageToSend").value = "";
     }
+
+
 </script>

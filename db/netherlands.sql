@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `english`
 --
 
-CREATE TABLE `english` (
+CREATE TABLE `netherlands` (
   `id` int NOT NULL,
   `userId` int NOT NULL,
   `message` varchar(256) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `english` (
 --
 -- Indexes for table `english`
 --
-ALTER TABLE `english`
+ALTER TABLE `netherlands`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -55,7 +55,7 @@ ALTER TABLE `english`
 --
 -- AUTO_INCREMENT for table `english`
 --
-ALTER TABLE `english`
+ALTER TABLE `netherlands`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 COMMIT;
 

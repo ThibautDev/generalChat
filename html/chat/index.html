@@ -5,10 +5,8 @@
 
     <link rel="stylesheet" type="text/css" href="../assets/styles/styles-chat.css">
     <link rel="stylesheet" type="text/css" href="../assets/styles/styles.css">
-    <link rel="stylesheet" type="text/css" href="../assets/colors/gruvbox.css">
     
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 
     <title>Le general</title>
 </head>
@@ -32,9 +30,11 @@
             <div class="redSpan">
                 <span>Repport</span>
             </div>
-            <div class="redSpan">
-                <span>Disconnect</span>
-            </div>
+            <a href="../assets/functions/chat/disconnection.php">
+                <div class="redSpan">
+                    <span>Disconnect</span>
+                </div>
+            </a>
         </footer> 
     </div>
     <div id="chat">
@@ -95,19 +95,28 @@
         </div>
         <div id="dark"></div>
     </div>
+    <div id="infoAccount">
+        <span></span>
+    </div>
 </body>
 
 <script type="text/javascript">
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;
 
-    // var app = document.getElementById('text');
+    $.ajax({
+        url: '../assets/functions/chat/getUsername.php',
+        dataType: 'json',
+        success: function(data) {
+            if (data !== ""){
+                console.log(data);
+                document.querySelector('#infoAccount span').innerHTML = data;
+            } else {
+                localStorage.setItem('login', 'Error: no Session id');
+                localStorage.setItem('connection', 'Error: no Session id');
+                window.location.href = '/';
+            }
+        },
+    })
 
-    // var typewriter = new Typewriter(app, {
-    //   delay: 7,
-    // });
-
-    // typewriter
-    //   .typeString('')
-    //   .start();
 </script>

@@ -31,7 +31,7 @@ if (empty($username)){
         errorLogin("Wrong username / password");
     } else {
         session_start();
-        $_SESSION["favcolor"] = $row["id"];
+        $_SESSION["id"] = $row["id"];
         conn("main") -> close();
         echo "
             <script>

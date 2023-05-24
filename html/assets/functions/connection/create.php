@@ -66,7 +66,13 @@ if (empty($username)){
         if (empty($rowConnection["id"])) {
             errorCreate("Account creation failed");
         } else {
-            $id = $rowConnection["id"];
+            $_SESSION["id"] = $rowConnection["id"];
+            conn("main") -> close();
+            echo "
+                <script>
+                    window.location.href = '/chat';
+                </script>
+            ";
         }
     }
 }

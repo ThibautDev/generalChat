@@ -67,7 +67,7 @@
 <body onload="setForm()">
     <p id="title"><span>Général</span><span>.be</span></p>
     <div class="pannel">
-        <form id="login" method="post" action="assets/functions/php/login.php">
+        <form id="login" method="post" action="assets/functions/connection/login.php">
             <p>Login form</p>
             <div class="error" id="errorLogin"></div>
             <input type="text" placeholder="Username / E-mail" name="usernameLogin">
@@ -77,7 +77,7 @@
             </div>
             <input type="submit" value="Connection">
         </form>
-        <form id="create" method="post" action="assets/functions/php/create.php">
+        <form id="create" method="post" action="assets/functions/connection/create.php">
             <p>Create account form</p>
             <div class="error" id="errorConnection"></div>
             <input type="text" placeholder="Username (max 25 characters)" maxlength="25" name="usernameCreate">

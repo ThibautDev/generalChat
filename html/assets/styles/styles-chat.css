@@ -1,6 +1,7 @@
 body{
 	display: flex;
 	justify-content: space-between;
+    overflow: hidden;
 }
 #menu{
 	background-color: var(--bg2);
@@ -18,6 +19,12 @@ body{
 	border-radius: 5px;
 	background-color: var(--bg1);
 	cursor: pointer;
+
+}
+
+#menu a{
+    color: var(--fg1);
+    text-decoration: none;
 }
 
 #menu div:hover{
@@ -173,3 +180,12 @@ body{
 	margin-left: 1vh;
 }
 
+#infoAccount{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color:var(--bg3);
+
+    padding: 1vh;
+    border-radius: 0vh 0vh 0vh 1vh;
+}

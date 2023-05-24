@@ -45,6 +45,7 @@ a{
     color: var(--sc2);
     cursor: pointer;
 }
+
 a:hover{
     color: var(--sc1);
 }

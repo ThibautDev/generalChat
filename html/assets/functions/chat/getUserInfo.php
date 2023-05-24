@@ -11,5 +11,10 @@ header('Content-Type: application/json');
     $getUsernameresult = conn("main")->query($getUsernameSql);
     $row = $getUsernameresult->fetch_assoc();
 
-    echo json_encode($row["username"]);
+    $userInfo = array(
+        "id" => $_SESSION['id'],
+        "username" => $row["username"]
+    );
+
+    echo json_encode($userInfo);
 ?>

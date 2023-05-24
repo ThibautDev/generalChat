@@ -41,7 +41,7 @@
         <div id="chatbox">
             <div class="message">
                 <div id="start">
-                    <span id="username">Username</span> : <span id="text">Singularity towards military-grade faded office franchise futurity savant assassin semiotics. Dissident sprawl decay human systema BASE jump car augmented reality warehouse drone digital cyber. Neon sub-orbital semiotics grenade apophenia ablative military-grade shanty town hotdog katana 8-bit bicycle order-flow media. Sentient lights soul-delay franchise fluidity city alcohol dead hotdog rain into sensory assault nano. Legba soul-delay advert fetishism systemic nodality apophenia nodal point San Francisco narrative BASE jump tanto bomb sprawl shrine savant bridge. Smart-tiger-team dissident range-rover refrigerator dolphin order-flow otaku digital soul-delay bomb shoes. </span>
+                    <span id="messageUsername">Username</span> : <span id="text">Singularity towards military-grade faded office franchise futurity savant assassin semiotics. Dissident sprawl decay human systema BASE jump car augmented reality warehouse drone digital cyber. Neon sub-orbital semiotics grenade apophenia ablative military-grade shanty town hotdog katana 8-bit bicycle order-flow media. Sentient lights soul-delay franchise fluidity city alcohol dead hotdog rain into sensory assault nano. Legba soul-delay advert fetishism systemic nodality apophenia nodal point San Francisco narrative BASE jump tanto bomb sprawl shrine savant bridge. Smart-tiger-team dissident range-rover refrigerator dolphin order-flow otaku digital soul-delay bomb shoes. </span>
                 </div>
                 <div id="end">
                     11:11
@@ -100,17 +100,20 @@
     </div>
 </body>
 
+
 <script type="text/javascript">
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;
 
+    var username;
+
     $.ajax({
-        url: '../assets/functions/chat/getUsername.php',
+        url: '../assets/functions/chat/getUserInfo.php',
         dataType: 'json',
         success: function(data) {
             if (data !== ""){
-                console.log(data);
-                document.querySelector('#infoAccount span').innerHTML = data;
+                username = data.username;
+                main();
             } else {
                 localStorage.setItem('login', 'Error: no Session id');
                 localStorage.setItem('connection', 'Error: no Session id');
@@ -119,4 +122,8 @@
         },
     })
 
+    function main(){
+        console.log(username);
+        document.querySelector('#infoAccount span').innerHTML = username;
+    }
 </script>

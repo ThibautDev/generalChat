@@ -11,8 +11,6 @@
     <title>Le general</title>
 </head>
 <script>
-    var username;
-
     $.ajax({
         url: '../assets/functions/chat/getUserInfo.php',
         dataType: 'json',
@@ -26,8 +24,6 @@
             }
         },
     })
-
-    console.log(username);
 </script>
 <body>
     <div id="menu">
@@ -68,8 +64,8 @@
             </div>
         </div>
         <div id="sendbox">
-             <input type="text" name="messageToSend" placeholder="Message max 200 characters">
-             <img src="../assets/logo/send.svg">
+             <input type="text" id="messageToSend" name="messageToSend" placeholder="Message max 200 characters" onkeypress="pressEnter(event)">
+             <img src="../assets/logo/send.svg" onclick="send()">
         </div>
     </div>
     <div id="setting">
@@ -121,6 +117,29 @@
 
 
 <script type="text/javascript">
+    
+    var chat = "english";
+
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;
+
+    function pressEnter(event){
+        if (event.keyCode == 13) {
+            send();
+        }    
+    }
+
+    function send() {
+        message = document.getElementById("messageToSend").value;
+        $.ajax({
+            url: "../assets/functions/chat/send.php",
+            type: "POST",
+            data: {
+                message: message,
+                language: "english",
+            },
+        });
+
+        document.getElementById("messageToSend").value = "";
+    }
 </script>

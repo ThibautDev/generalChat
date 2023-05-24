@@ -10,6 +10,25 @@
 
     <title>Le general</title>
 </head>
+<script>
+    var username;
+
+    $.ajax({
+        url: '../assets/functions/chat/getUserInfo.php',
+        dataType: 'json',
+        success: function(data) {
+            if (data !== ""){
+                document.querySelector('#infoAccount span').innerHTML = data;
+            } else {
+                localStorage.setItem('login', 'Error: no Session id');
+                localStorage.setItem('connection', 'Error: no Session id');
+                window.location.href = '/';
+            }
+        },
+    })
+
+    console.log(username);
+</script>
 <body>
     <div id="menu">
         <header>
@@ -104,26 +123,4 @@
 <script type="text/javascript">
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;
-
-    var username;
-
-    $.ajax({
-        url: '../assets/functions/chat/getUserInfo.php',
-        dataType: 'json',
-        success: function(data) {
-            if (data !== ""){
-                username = data.username;
-                main();
-            } else {
-                localStorage.setItem('login', 'Error: no Session id');
-                localStorage.setItem('connection', 'Error: no Session id');
-                window.location.href = '/';
-            }
-        },
-    })
-
-    function main(){
-        console.log(username);
-        document.querySelector('#infoAccount span').innerHTML = username;
-    }
 </script>

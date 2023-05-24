@@ -122,7 +122,7 @@
         success: function(response) {
             console.log(response);
 
-            for (var i = 0; i < response.length; i++) {
+            for (var i = 0; i < response.length; ++i) {
                 console.log("test");
 
                 var row = response[i];
@@ -130,7 +130,7 @@
                 var userId = row.userId;
                 var message = row.message;
                 var time = row.time;
-                document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + row.userId + "</span> : <span id='text'>" + row.message +  "</span></div><div id='end'>" + row.time + "</div></div>";
+                document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + row.username + "</span> : <span id='text'>" + row.message +  "</span></div><div id='end'>" + row.time + "</div></div>";
             }
     const container = document.getElementById("chatbox");
     container.scrollTop = container.scrollHeight;

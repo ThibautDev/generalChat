@@ -3,8 +3,7 @@
 
     include '../conn.php';
 
-    //$language = $_POST["language"];
-    $language = "english";
+    $language = $_POST["language"];
 
     $getLastSql = "
         SELECT `id` FROM $language

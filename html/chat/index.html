@@ -24,19 +24,27 @@
             }
         },
     })
+    const searchParams = new URLSearchParams(window.location.search);
+    var chat = searchParams.get('language');
 </script>
 <body>
     <div id="menu">
         <header>
-            <div id="selected">
-                <span>English</span>
-            </div>
-            <div>
-                <span>French</span>
-            </div>
-            <div>
-                <span>Netherlands</span>
-            </div>
+            <a href="./?language=english">
+                <div id="selected">
+                    <span>English</span>
+                </div>
+            </a>
+            <a href="./?language=french">
+                <div>
+                    <span>French</span>
+                </div>
+            </a>
+            <a href="./?language=netherlands">
+                <div>
+                    <span>Netherlands</span>
+                </div>
+            </a>
         </header> 
         <footer>
             <div>
@@ -108,14 +116,15 @@
 
 
 <script type="text/javascript">
-    var chat = "english";
+    
+
 
     $.ajax({
         url: '../assets/functions/chat/get50.php',
         dataType: 'json',
         type: "POST",
         data: {
-            language: "english"
+            language: chat
         },
         success: function(response) {
             for (var i = 0; i < response.length; ++i) {
@@ -141,7 +150,7 @@
             type: "POST",
             data: {
                 message: message,
-                language: "english",
+                language: chat,
             },
         });
         document.getElementById("messageToSend").value = "";
@@ -153,7 +162,7 @@
             dataType: 'json',
             type: "POST",
             data: {
-                language: "english"
+                language: chat
             },
             success: function(getNew) {
                 if (last < getNew.id) {
@@ -171,7 +180,7 @@
             dataType: 'json',
             type: "POST",
             data: {
-                language: "english",
+                language: chat,
                 id: messageId
             },
             success: function(newMessage) {

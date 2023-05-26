@@ -70,7 +70,7 @@ if (empty($username)){
             conn("main") -> close();
             echo "
                 <script>
-                    window.location.href = '/chat';
+                    window.location.href = '/chat/?language=english';
                 </script>
             ";
         }

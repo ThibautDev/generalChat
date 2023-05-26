@@ -193,3 +193,6 @@ body{
 #messageUsername{
 	color: var(--sc1)
 }
+#end{
+	color: var(--bg3);
+}

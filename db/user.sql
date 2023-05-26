@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `pic`) VALUES
-(1, 'admin', 'passwordSuperSecure', 'none', 'admin.png');
+(1, 'admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'none', 'admin.png');
 
 --
 -- Indexes for dumped tables

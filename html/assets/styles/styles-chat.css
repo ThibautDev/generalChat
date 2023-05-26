@@ -153,11 +153,11 @@ body{
 #pannel .section label{
 	margin-bottom: 1vh;
 }
-#pannel .section .change input[type="text"], 
+/* #pannel .section .change input[type="text"], 
 #pannel .section .change input[type="email"], 
 #pannel .section .change input[type="password"],{
 
-}
+} */
 #pannel .section .change{
 	display: flex;
 	flex-direction: row;
@@ -188,4 +188,8 @@ body{
 
     padding: 1vh;
     border-radius: 0vh 0vh 0vh 1vh;
+}
+
+#messageUsername{
+	color: var(--sc1)
 }

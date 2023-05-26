@@ -3,8 +3,7 @@
 
     include '../conn.php';
 
-    //$language = $_POST["language"];
-    $language = "english";
+    $language = $_POST["language"];
 
     $get50Sql = "SELECT * FROM ( SELECT * FROM `$language` ORDER BY `id` DESC LIMIT 50 ) as recent ORDER BY id ASC;";
     $get50Result = conn("main")->query($get50Sql);

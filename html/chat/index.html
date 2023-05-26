@@ -15,7 +15,7 @@
         url: '../assets/functions/chat/getUserInfo.php',
         dataType: 'json',
         success: function(data) {
-            if (data !== ""){
+            if (data !== null){
                 document.querySelector('#infoAccount span').innerHTML = data;
             } else {
                 localStorage.setItem('login', 'Error: no Session id');
@@ -110,8 +110,6 @@
 <script type="text/javascript">
     var chat = "english";
 
-
-
     $.ajax({
         url: '../assets/functions/chat/get50.php',
         dataType: 'json',
@@ -120,23 +118,15 @@
             language: "english"
         },
         success: function(response) {
-            console.log(response);
-
             for (var i = 0; i < response.length; ++i) {
-                console.log("test");
-
                 var row = response[i];
-                var id = row.id;
-                var userId = row.userId;
-                var message = row.message;
-                var time = row.time;
                 document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + row.username + "</span> : <span id='text'>" + row.message +  "</span></div><div id='end'>" + row.time + "</div></div>";
             }
-    const container = document.getElementById("chatbox");
-    container.scrollTop = container.scrollHeight;
+            const container = document.getElementById("chatbox");
+            container.scrollTop = container.scrollHeight;
+            last = row.id;
         }
     })
-
 
     function pressEnter(event){
         if (event.keyCode == 13) {
@@ -157,5 +147,42 @@
         document.getElementById("messageToSend").value = "";
     }
 
+    function checkForUpdates () {
+        $.ajax({
+            url: '../assets/functions/chat/getLastId.php',
+            dataType: 'json',
+            type: "POST",
+            data: {
+                language: "english"
+            },
+            success: function(getNew) {
+                if (last < getNew.id) {
+                    last++;
+                    console.log(getNew.id + last)
+                    getNewMessage(getNew.id);
+                }
+            },
+        })
+    }
 
+    function getNewMessage(messageId) {
+        $.ajax({
+            url: '../assets/functions/chat/getLastMessage.php',
+            dataType: 'json',
+            type: "POST",
+            data: {
+                language: "english",
+                id: messageId
+            },
+            success: function(newMessage) {
+                console.log(newMessage.message);
+                document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + newMessage.username + "</span> : <span id='text'>" + newMessage.message +  "</span></div><div id='end'>" + newMessage.time + "</div></div>";
+                const container = document.getElementById("chatbox");
+                container.scrollTop = container.scrollHeight;
+            },
+            
+        })
+    }
+    
+    setInterval(checkForUpdates, 800);
 </script>

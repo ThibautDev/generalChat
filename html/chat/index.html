@@ -31,17 +31,17 @@
     <div id="menu">
         <header>
             <a href="./?language=english">
-                <div id="selected">
+                <div id="english">
                     <span>English</span>
                 </div>
             </a>
             <a href="./?language=french">
-                <div>
+                <div id="french">
                     <span>French</span>
                 </div>
             </a>
             <a href="./?language=netherlands">
-                <div>
+                <div id="netherlands">
                     <span>Netherlands</span>
                 </div>
             </a>
@@ -116,8 +116,7 @@
 
 
 <script type="text/javascript">
-    
-
+    document.getElementById(chat).id = "selected";
 
     $.ajax({
         url: '../assets/functions/chat/get50.php',
@@ -188,10 +187,10 @@
                 document.getElementById('chatbox').innerHTML += "<div class='message'><div id='start'><span id='messageUsername'>" + newMessage.username + "</span> : <span id='text'>" + newMessage.message +  "</span></div><div id='end'>" + newMessage.time + "</div></div>";
                 const container = document.getElementById("chatbox");
                 container.scrollTop = container.scrollHeight;
+                checkForUpdates ();
             },
-            
         })
     }
     
-    setInterval(checkForUpdates, 800);
+    setInterval(checkForUpdates, 1500);
 </script>

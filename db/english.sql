@@ -39,6 +39,9 @@ CREATE TABLE `english` (
 -- Dumping data for table `english`
 --
 
+INSERT INTO `english` (`id`, `userId`, `message`, `time`) VALUES
+(30, 1, 'hello', '01:00:00');
+
 --
 -- Indexes for dumped tables
 --

@@ -38,6 +38,9 @@ CREATE TABLE `netherlands` (
 -- Dumping data for table `english`
 --
 
+INSERT INTO `netherlands` (`id`, `userId`, `message`, `time`) VALUES
+(30, 1, 'hallo', '01:00:00');
+
 --
 -- Indexes for dumped tables
 --

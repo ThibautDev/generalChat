@@ -38,6 +38,9 @@ CREATE TABLE `french` (
 -- Dumping data for table `english`
 --
 
+INSERT INTO `french` (`id`, `userId`, `message`, `time`) VALUES
+(30, 1, 'Bonjour', '01:00:00');
+
 --
 -- Indexes for dumped tables
 --

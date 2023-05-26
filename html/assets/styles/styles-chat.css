@@ -96,6 +96,12 @@ body{
 	cursor: pointer;
 }
 
+.closeWindows{
+	position: absolute;
+	top: 0;
+	cursor: pointer;
+}
+
 #setting{
     position: absolute;
     top: 0;
@@ -103,9 +109,9 @@ body{
     right: 0;
     left: 0;
 
-    display: none;
+	display: none;
 }
-#repport{
+#report{
     position: absolute;
     top: 0;
     bottom: 0;

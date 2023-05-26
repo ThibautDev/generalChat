@@ -16,7 +16,9 @@
         dataType: 'json',
         success: function(data) {
             if (data !== null){
-                document.querySelector('#infoAccount span').innerHTML = data;
+                document.querySelector('#infoAccount span').innerHTML = data.username;
+                document.querySelector('#newUsername').value = data.username;
+                document.querySelector('#newEmail').value = data.email;
             } else {
                 localStorage.setItem('login', 'Error: no Session id');
                 localStorage.setItem('connection', 'Error: no Session id');
@@ -24,6 +26,7 @@
             }
         },
     })
+
     const searchParams = new URLSearchParams(window.location.search);
     var chat = searchParams.get('language');
 </script>
@@ -47,11 +50,11 @@
             </a>
         </header> 
         <footer>
-            <div>
+            <div onclick="openWindow('setting')">
                 <span>Settings</span>
             </div>
-            <div class="redSpan">
-                <span>Repport</span>
+            <div class="redSpan" onclick="openWindow('report')">
+                <span>Report</span>
             </div>
             <a href="../assets/functions/chat/disconnection.php">
                 <div class="redSpan">
@@ -73,32 +76,33 @@
             <div class="section">
                 <label for="newUsername">Your username : <span id="settingUsername"></span></label>
                 <div class="change">
-                    <input type="text" name="newUsername" placeholder="New Username">
+                    <input type="text" id="newUsername" name="newUsername" placeholder="New Username" value="">
                     <img src="../assets/logo/save.svg">
                 </div>
             </div>
             <div class="section">
-                <label for="newUsername">Your E-mail : <span id="settingEmail"></span></label>
+                <label for="newEmail">Your E-mail : <span id="settingEmail"></span></label>
                 <div class="change">
-                    <input type="text" name="newUsername" placeholder="New Username">
+                    <input type="text" id="newEmail" name="newEmail" placeholder="New E-mail">
                     <img src="../assets/logo/save.svg">
                 </div>
             </div>
             <div class="section">
-                <label for="newUsername">New password</label>
+                <label for="newPassword">New password</label>
                 <div class="change">
-                    <input type="text" name="newUsername" placeholder="New Username">
+                    <input type="text" name="newPassword" placeholder="New password">
                     <img src="../assets/logo/save.svg">
                 </div>
             </div>
+            <img src="../assets/logo/close.svg" class="closeWindows" onclick="closeWindow('setting')">
         </div>
         <div id="dark"></div>
     </div>
-    <div id="repport">
+    <div id="report">
         <div id="pannel">
-            <p>Repport</p>
+            <p>Report</p>
             <form>
-                <input type="text" name="repportUsername" placeholder="Username">
+                <input type="text" name="reportUsername" placeholder="Username">
                 <select name="cars" id="cars">
                     <option value="volvo">Volvo</option>
                     <option value="saab">Saab</option>
@@ -106,6 +110,7 @@
                     <option value="audi">Audi</option>
                 </select>
             </form>
+            <img src="../assets/logo/close.svg" class="closeWindows" onclick="closeWindow('report')">
         </div>
         <div id="dark"></div>
     </div>
@@ -193,4 +198,12 @@
     }
     
     setInterval(checkForUpdates, 1500);
+
+    function openWindow(windowId) {
+        document.querySelector('#' + windowId).style.display = 'inline';
+    }
+
+    function closeWindow(windowId) {
+        document.querySelector('#' + windowId).style.display = 'none';
+    }
 </script>

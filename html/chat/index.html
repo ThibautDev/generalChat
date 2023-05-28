@@ -76,8 +76,8 @@
             <div class="section">
                 <label for="newUsername">Your username : <span id="settingUsername"></span></label>
                 <div class="change">
-                    <input type="text" id="newUsername" name="newUsername" placeholder="New Username" value="">
-                    <img src="../assets/logo/save.svg">
+                    <input type="text" id="newUsername" name="newUsername" placeholder="New Username" value="t">
+                    <img src="../assets/logo/save.svg" onclick="updateSettings('username', 'newUsername')">
                 </div>
             </div>
             <div class="section">
@@ -205,5 +205,19 @@
 
     function closeWindow(windowId) {
         document.querySelector('#' + windowId).style.display = 'none';
+    }
+
+    function updateSettings(setting, id) {
+        $.ajax({
+            url: "../assets/functions/chat/send.php",
+            type: "POST",
+            data: {
+                toEdit: setting,
+                new: document.getElementById(id).value
+            },
+            success: function(){
+                console.log(document.getElementById(id).value);
+            },
+        });
     }
 </script>

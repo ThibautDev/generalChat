@@ -13,7 +13,7 @@ body{
     align-items: center;
 }
 .pannel{
-    width: 40%;
+    width: 60vh;
     box-shadow: var(--bg3) 0px 0px 0px 3px;
 }
 .pannel .error{
